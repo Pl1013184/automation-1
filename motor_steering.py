@@ -5,8 +5,8 @@ Convert the steering value into left and right motor speeds.
 from Motordriver import MotorRun, forward
 def set_motor_speeds(steering_val, base_speed=100):
 
-    left_speed = base_speed + steering_val
-    right_speed = base_speed - steering_val
+    left_speed = base_speed*(0.5+steering_val/100)
+    right_speed = base_speed*(0.50-steering_val/100)
 
     left_speed = int(max(0, min(255, left_speed)))
     right_speed = int(max(0, min(255, right_speed)))
